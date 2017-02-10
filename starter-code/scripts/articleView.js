@@ -53,15 +53,18 @@ articleView.handleCategoryFilter = function () {
 
 articleView.handleMainNav = function () {
   $('.main-nav').on('click', '.tab', function () {
-    /* TODO:
+    /* DONE:
       1. Hide all of the .tab-content sections
       2. Fade in the single .tab-content section that is
         associated with the .tab element's data-content attribute.
     */
+    $('.tab-content').hide();
+    $('#' + $(this).data('content')).fadeIn();
   });
   $('.main-nav .tab:first').click();
 };
 
+//All of this is a stretch goal
 articleView.setTeasers = function () {
   // Truncate logic to show only first two elements within the article body.
   $('.article-body *:nth-of-type(n+2)').hide();
@@ -79,3 +82,4 @@ articleView.setTeasers = function () {
 articleView.populateFilters();
 articleView.handleAuthorFilter();
 articleView.handleCategoryFilter();
+articleView.handleMainNav();
